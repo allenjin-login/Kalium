@@ -1,19 +1,27 @@
 {
   "mappings": {
+    "org/superredrock/Kalium/mixin/MineCraftServerMixin": {
+      "close": "Lnet/minecraft/server/MinecraftServer;close()V"
+    },
     "org/superredrock/Kalium/mixin/ServerLevelMixin": {
       "close": "Lnet/minecraft/server/level/ServerLevel;close()V"
     },
     "org/superredrock/Kalium/mixin/LegancyRandomSourceSyncMixin": {
-      "next": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_64707_(I)I"
+      "next": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_64707_(I)I",
+      "setSeed": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_188584_(J)V"
     }
   },
   "data": {
     "searge": {
+      "org/superredrock/Kalium/mixin/MineCraftServerMixin": {
+        "close": "Lnet/minecraft/server/MinecraftServer;close()V"
+      },
       "org/superredrock/Kalium/mixin/ServerLevelMixin": {
         "close": "Lnet/minecraft/server/level/ServerLevel;close()V"
       },
       "org/superredrock/Kalium/mixin/LegancyRandomSourceSyncMixin": {
-        "next": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_64707_(I)I"
+        "next": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_64707_(I)I",
+        "setSeed": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_188584_(J)V"
       }
     }
   }

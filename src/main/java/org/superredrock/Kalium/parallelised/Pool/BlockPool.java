@@ -33,6 +33,9 @@ public class BlockPool extends TickerPool {
         super.terminated();
         workQueue.forEachValue(16, v -> v.cancel(true));
         workQueue.clear();
+        freshBlocks.clear();
+        pendingBlocks.clear();
+        pendingFreshBlocks.clear();
     }
 
 
@@ -69,7 +72,6 @@ public class BlockPool extends TickerPool {
         if (!tickingBlock.isRemoved()){
             BlockTicker ticker = new BlockTicker(this.OwnedLevel,tickingBlock);
             ScheduledFuture<?> tickTask = scheduleAtFixedRate(ticker,50 ,50, TimeUnit.MILLISECONDS);
-            Kalium.LOGGER.info("new block register type:{}",tickingBlock.getType());
             workQueue.put(ticker,tickTask);
         }
     }
@@ -86,7 +88,7 @@ public class BlockPool extends TickerPool {
             this.freshBlocks.forEach(IForgeBlockEntity::onLoad);
             this.freshBlocks.clear();
         }
-        if (!this.pendingBlocks.isEmpty()){
+        if (!this.pendingBlocks.isEmpty() && !this.isTerminated()){
             for (TickingBlockEntity block : this.pendingBlocks){
                 this.register(block);
             }
