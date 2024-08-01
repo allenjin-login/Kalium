@@ -1,6 +1,7 @@
 package org.superredrock.Kalium.parallelised.Pool;
 
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import net.minecraftforge.common.extensions.IForgeBlockEntity;
 import org.jetbrains.annotations.NotNull;
@@ -16,8 +17,8 @@ import java.util.concurrent.atomic.AtomicLong;
 public class BlockPool extends TickerPool {
 
     private final ConcurrentHashMap<BlockTicker, ScheduledFuture<?>> workQueue = new ConcurrentHashMap<>();
-    private final ArrayList<TickingBlockEntity> freshBlocks = new ArrayList<>();
-    private final ArrayList<TickingBlockEntity> pendingFreshBlocks = new ArrayList<>();
+    private final ArrayList<BlockEntity> freshBlocks = new ArrayList<>();
+    private final ArrayList<BlockEntity> pendingFreshBlocks = new ArrayList<>();
     private final ArrayList<TickingBlockEntity> pendingBlocks = new ArrayList<>();
 
 
@@ -43,7 +44,9 @@ public class BlockPool extends TickerPool {
                     workQueue.remove(blockTicker);
                     count.incrementAndGet();
                 });
-        count.get();
+        if (count.get() != 0){
+            Kalium.LOGGER.debug("Release {} blocks",count.get());
+        }
     }
 
     public void addTicker(TickingBlockEntity tickingBlock){
@@ -54,7 +57,7 @@ public class BlockPool extends TickerPool {
         }
     }
 
-    public void addFleshBlockTicker(Collection<TickingBlockEntity> fleshBlock){
+    public void addFleshBlockTicker(Collection<BlockEntity> fleshBlock){
         if (this.ticking) {
             this.pendingFreshBlocks.addAll(fleshBlock);
         } else {
@@ -80,10 +83,7 @@ public class BlockPool extends TickerPool {
         }
         this.ticking = true;
         if (!this.freshBlocks.isEmpty()) {
-            this.freshBlocks.forEach(tickingBlock -> {
-                IForgeBlockEntity entity = (IForgeBlockEntity) tickingBlock;
-                entity.onLoad();
-            });
+            this.freshBlocks.forEach(IForgeBlockEntity::onLoad);
             this.freshBlocks.clear();
         }
         if (!this.pendingBlocks.isEmpty()){

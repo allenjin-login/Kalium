@@ -1,7 +1,6 @@
 {
   "mappings": {
     "org/superredrock/Kalium/mixin/ServerLevelMixin": {
-      "tick": "Lnet/minecraft/server/level/ServerLevel;m_8793_(Ljava/util/function/BooleanSupplier;)V",
       "close": "Lnet/minecraft/server/level/ServerLevel;close()V"
     },
     "org/superredrock/Kalium/mixin/LegancyRandomSourceSyncMixin": {
@@ -11,7 +10,6 @@
   "data": {
     "searge": {
       "org/superredrock/Kalium/mixin/ServerLevelMixin": {
-        "tick": "Lnet/minecraft/server/level/ServerLevel;m_8793_(Ljava/util/function/BooleanSupplier;)V",
         "close": "Lnet/minecraft/server/level/ServerLevel;close()V"
       },
       "org/superredrock/Kalium/mixin/LegancyRandomSourceSyncMixin": {
