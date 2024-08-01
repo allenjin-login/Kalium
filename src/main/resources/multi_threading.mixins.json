@@ -5,8 +5,10 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "multi_threading.refmap.json",
   "mixins": [
+    "BlockSync",
     "LegancyRandomSourceSync",
-    "LevelMixin",
+    "LevelChunkMixin",
+    "LevelSync",
     "MineCraftServerMixin",
     "ServerLevelMixin"
   ],

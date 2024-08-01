@@ -3,12 +3,15 @@
     "org/superredrock/Kalium/mixin/MineCraftServerMixin": {
       "close": "Lnet/minecraft/server/MinecraftServer;close()V"
     },
+    "org/superredrock/Kalium/mixin/LegancyRandomSourceSync": {
+      "next": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_64707_(I)I",
+      "setSeed": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_188584_(J)V"
+    },
     "org/superredrock/Kalium/mixin/ServerLevelMixin": {
       "close": "Lnet/minecraft/server/level/ServerLevel;close()V"
     },
-    "org/superredrock/Kalium/mixin/LegancyRandomSourceSyncMixin": {
-      "next": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_64707_(I)I",
-      "setSeed": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_188584_(J)V"
+    "org/superredrock/Kalium/mixin/LevelMixin": {
+      "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z": "Lnet/minecraft/world/level/Level;m_6933_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z"
     }
   },
   "data": {
@@ -16,12 +19,15 @@
       "org/superredrock/Kalium/mixin/MineCraftServerMixin": {
         "close": "Lnet/minecraft/server/MinecraftServer;close()V"
       },
+      "org/superredrock/Kalium/mixin/LegancyRandomSourceSync": {
+        "next": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_64707_(I)I",
+        "setSeed": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_188584_(J)V"
+      },
       "org/superredrock/Kalium/mixin/ServerLevelMixin": {
         "close": "Lnet/minecraft/server/level/ServerLevel;close()V"
       },
-      "org/superredrock/Kalium/mixin/LegancyRandomSourceSyncMixin": {
-        "next": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_64707_(I)I",
-        "setSeed": "Lnet/minecraft/world/level/levelgen/LegacyRandomSource;m_188584_(J)V"
+      "org/superredrock/Kalium/mixin/LevelMixin": {
+        "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z": "Lnet/minecraft/world/level/Level;m_6933_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z"
       }
     }
   }

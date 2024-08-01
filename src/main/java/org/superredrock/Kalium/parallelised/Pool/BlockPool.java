@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import net.minecraftforge.common.extensions.IForgeBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.superredrock.Kalium.Kalium;
+import org.superredrock.Kalium.NameUtils;
 import org.superredrock.Kalium.parallelised.BlockTicker;
 
 
@@ -24,33 +25,11 @@ public class BlockPool extends TickerPool {
 
 
     public BlockPool(int corePoolSize, Level ownedLevel) {
-        super(corePoolSize,"Block Pool",ownedLevel);
+        super(corePoolSize,"Block Pool " + NameUtils.getId(),ownedLevel);
     }
 
 
-    @Override
-    protected void terminated() {
-        super.terminated();
-        workQueue.forEachValue(16, v -> v.cancel(true));
-        workQueue.clear();
-        freshBlocks.clear();
-        pendingBlocks.clear();
-        pendingFreshBlocks.clear();
-    }
 
-
-    public void release(){
-        AtomicLong count = new AtomicLong(0);
-        workQueue.forEachKey(64, k -> k.isClean() ? k : null,
-                blockTicker -> {
-                    workQueue.get(blockTicker).cancel(true);
-                    workQueue.remove(blockTicker);
-                    count.incrementAndGet();
-                });
-        if (count.get() != 0){
-            Kalium.LOGGER.debug("Release {} blocks",count.get());
-        }
-    }
 
     public void addTicker(TickingBlockEntity tickingBlock){
         if (this.ticking){
@@ -94,12 +73,39 @@ public class BlockPool extends TickerPool {
             }
             this.pendingBlocks.clear();
         }
+        if (this.getActiveCount() != 0){
+            Kalium.LOGGER.debug("Active blocks {}",this.getActiveCount());
+        }
         release();
         this.ticking = false;
     }
 
     @Override
+    protected void terminated() {
+        super.terminated();
+        workQueue.forEachValue(16, v -> v.cancel(true));
+        workQueue.clear();
+        freshBlocks.clear();
+        pendingBlocks.clear();
+        pendingFreshBlocks.clear();
+    }
+
+
+    public void release(){
+        AtomicLong count = new AtomicLong(0);
+        workQueue.forEachKey(64, k -> k.isClean() ? k : null,
+                blockTicker -> {
+                    workQueue.get(blockTicker).cancel(true);
+                    workQueue.remove(blockTicker);
+                    count.incrementAndGet();
+                });
+        if (count.get() != 0){
+            Kalium.LOGGER.debug("Release {} blocks",count.get());
+        }
+    }
+
+    @Override
     public Thread newThread(@NotNull Runnable r) {
-        return new Thread(r,"Block Ticker " + ThreadLocalRandom.current().nextInt());
+        return new Thread(r,"Block Ticker " + NameUtils.getId());
     }
 }

@@ -25,7 +25,9 @@ public abstract class TickerPool extends ScheduledThreadPoolExecutor implements 
         return name;
     }
 
-    public abstract void onTick();
+    public void onTick(){
+
+    }
 
 
     @Override
@@ -38,6 +40,6 @@ public abstract class TickerPool extends ScheduledThreadPoolExecutor implements 
     @Override
     protected void terminated() {
         super.terminated();
-        Kalium.LOGGER.info("Pool: {} closed on Level:{}",this.name,this.OwnedLevel);
+        Kalium.LOGGER.debug("Pool: {} closed on Level:{}",this.name,this.OwnedLevel);
     }
 }
