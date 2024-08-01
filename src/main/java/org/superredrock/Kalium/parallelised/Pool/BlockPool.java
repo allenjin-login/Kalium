@@ -2,6 +2,7 @@ package org.superredrock.Kalium.parallelised.Pool;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.TickingBlockEntity;
+import net.minecraftforge.common.extensions.IForgeBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.superredrock.Kalium.Kalium;
 import org.superredrock.Kalium.parallelised.BlockTicker;
@@ -15,7 +16,11 @@ import java.util.concurrent.atomic.AtomicLong;
 public class BlockPool extends TickerPool {
 
     private final ConcurrentHashMap<BlockTicker, ScheduledFuture<?>> workQueue = new ConcurrentHashMap<>();
+    private final ArrayList<TickingBlockEntity> freshBlocks = new ArrayList<>();
     private final ArrayList<TickingBlockEntity> pendingFreshBlocks = new ArrayList<>();
+    private final ArrayList<TickingBlockEntity> pendingBlocks = new ArrayList<>();
+
+
 
     public BlockPool(int corePoolSize, Level ownedLevel) {
         super(corePoolSize,"Block Pool",ownedLevel);
@@ -41,6 +46,22 @@ public class BlockPool extends TickerPool {
         count.get();
     }
 
+    public void addTicker(TickingBlockEntity tickingBlock){
+        if (this.ticking){
+            this.pendingBlocks.add(tickingBlock);
+        }else {
+            register(tickingBlock);
+        }
+    }
+
+    public void addFleshBlockTicker(Collection<TickingBlockEntity> fleshBlock){
+        if (this.ticking) {
+            this.pendingFreshBlocks.addAll(fleshBlock);
+        } else {
+            this.freshBlocks.addAll(fleshBlock);
+        }
+    }
+
     public void register(TickingBlockEntity tickingBlock){
         if (!tickingBlock.isRemoved()){
             BlockTicker ticker = new BlockTicker(this.OwnedLevel,tickingBlock);
@@ -50,27 +71,33 @@ public class BlockPool extends TickerPool {
         }
     }
 
-    public void registerFleshBlock(Collection<TickingBlockEntity> fleshBlock){
-        if (this.ticking) {
-            this.pendingFreshBlocks.addAll(fleshBlock);
-        } else {
-            for (TickingBlockEntity tickingBlockEntity : fleshBlock){
-                register(tickingBlockEntity);
-            }
-        }
-    }
-
 
     @Override
     public void onTick() {
-
+        if (!this.pendingFreshBlocks.isEmpty()) {
+            this.freshBlocks.addAll(this.pendingFreshBlocks);
+            this.pendingFreshBlocks.clear();
+        }
         this.ticking = true;
+        if (!this.freshBlocks.isEmpty()) {
+            this.freshBlocks.forEach(tickingBlock -> {
+                IForgeBlockEntity entity = (IForgeBlockEntity) tickingBlock;
+                entity.onLoad();
+            });
+            this.freshBlocks.clear();
+        }
+        if (!this.pendingBlocks.isEmpty()){
+            for (TickingBlockEntity block : this.pendingBlocks){
+                this.register(block);
+            }
+            this.pendingBlocks.clear();
+        }
         release();
         this.ticking = false;
     }
 
     @Override
     public Thread newThread(@NotNull Runnable r) {
-        return new Thread(r,"Block Ticker "+ ThreadLocalRandom.current().nextInt());
+        return new Thread(r,"Block Ticker " + ThreadLocalRandom.current().nextInt());
     }
 }

@@ -40,7 +40,7 @@ public abstract class ServerLevelMixin extends Level {
     @Override
     public void addBlockEntityTicker(@NotNull TickingBlockEntity p_151526_) {
         super.addBlockEntityTicker(p_151526_);
-        this.blockPool.register(p_151526_);
+        this.blockPool.addTicker(p_151526_);
     }
 
 
