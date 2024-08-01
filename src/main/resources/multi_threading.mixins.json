@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.superredrock.Kalium.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "multi_threading.refmap.json",
+  "mixins": [
+    "LegancyRandomSourceSyncMixin",
+    "LevelMixin",
+    "MineCraftServerMixin",
+    "ServerLevelMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

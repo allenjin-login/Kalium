@@ -1,0 +1,6 @@
+org/superredrock/Kalium/mixin/LevelMixin pendingBlockEntityTickers f_151503_
+org/superredrock/Kalium/mixin/LevelMixin tickingBlockEntities f_151504_
+org/superredrock/Kalium/mixin/LevelMixin blockEntityTickers f_151512_
+org/superredrock/Kalium/mixin/LevelMixin getProfiler ()Lnet/minecraft/util/profiling/ProfilerFiller; m_46473_
+org/superredrock/Kalium/mixin/LevelMixin tickBlockEntities ()V m_46463_
+org/superredrock/Kalium/mixin/ServerLevelMixin tick (Ljava/util/function/BooleanSupplier;)V m_8793_

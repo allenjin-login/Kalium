@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Specification-Title: multi_threading
+Specification-Vendor: 
+Specification-Version: 1
+Implementation-Title: Multi-Threading
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor: 
+Implementation-Timestamp: 2024-07-31T18:02:23+0800
+MixinConfigs: multi_threading.mixins.json
+

@@ -1,0 +1,178 @@
+---- Minecraft Crash Report ----
+// Who set us up the TNT?
+
+Time: 2024-08-01 14:26:33
+Description: Accessing LegacyRandomSource from multiple threads
+
+java.lang.IllegalStateException: Accessing LegacyRandomSource from multiple threads
+	at net.minecraft.util.ThreadingDetector.makeThreadingException(ThreadingDetector.java:84) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.LegacyRandomSource.next(LegacyRandomSource.java:49) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.BitRandomSource.nextInt(BitRandomSource.java:27) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.NaturalSpawner.getRandomPosWithin(NaturalSpawner.java:287) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.NaturalSpawner.spawnCategoryForChunk(NaturalSpawner.java:125) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.NaturalSpawner.spawnForChunk(NaturalSpawner.java:117) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerChunkCache.tickChunks(ServerChunkCache.java:356) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerChunkCache.tick(ServerChunkCache.java:310) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:285) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:multi_threading.mixins.json:MixinServerLevel,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:866) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:806) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:654) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:244) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at java.lang.Thread.run(Thread.java:840) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Suspected Mods: NONE
+Stacktrace:
+	at net.minecraft.util.ThreadingDetector.makeThreadingException(ThreadingDetector.java:84) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.LegacyRandomSource.next(LegacyRandomSource.java:49) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.BitRandomSource.nextInt(BitRandomSource.java:27) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.NaturalSpawner.getRandomPosWithin(NaturalSpawner.java:287) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.NaturalSpawner.spawnCategoryForChunk(NaturalSpawner.java:125) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.NaturalSpawner.spawnForChunk(NaturalSpawner.java:117) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerChunkCache.tickChunks(ServerChunkCache.java:356) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerChunkCache.tick(ServerChunkCache.java:310) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:285) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:multi_threading.mixins.json:MixinServerLevel,pl:mixin:A}
+-- Thread dumps --
+Details:
+	Thread dumps: Server thread: 
+	at java.base/java.lang.Thread.getStackTrace(Thread.java:1619)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.util.ThreadingDetector.stackTrace(ThreadingDetector.java:92)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.util.ThreadingDetector.makeThreadingException(ThreadingDetector.java:82)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.world.level.levelgen.LegacyRandomSource.next(LegacyRandomSource.java:49)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.world.level.levelgen.BitRandomSource.nextInt(BitRandomSource.java:27)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.world.level.NaturalSpawner.getRandomPosWithin(NaturalSpawner.java:287)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.world.level.NaturalSpawner.spawnCategoryForChunk(NaturalSpawner.java:125)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.world.level.NaturalSpawner.spawnForChunk(NaturalSpawner.java:117)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.server.level.ServerChunkCache.tickChunks(ServerChunkCache.java:356)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.server.level.ServerChunkCache.tick(ServerChunkCache.java:310)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:285)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:866)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:806)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:654)
+	at TRANSFORMER/minecraft@1.19.2/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:244)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Stacktrace:
+	at net.minecraft.util.ThreadingDetector.makeThreadingException(ThreadingDetector.java:84) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.LegacyRandomSource.next(LegacyRandomSource.java:49) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.BitRandomSource.nextInt(BitRandomSource.java:27) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.NaturalSpawner.getRandomPosWithin(NaturalSpawner.java:287) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.NaturalSpawner.spawnCategoryForChunk(NaturalSpawner.java:125) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.world.level.NaturalSpawner.spawnForChunk(NaturalSpawner.java:117) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerChunkCache.tickChunks(ServerChunkCache.java:356) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerChunkCache.tick(ServerChunkCache.java:310) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:285) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:multi_threading.mixins.json:MixinServerLevel,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:866) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:806) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:654) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:244) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at java.lang.Thread.run(Thread.java:840) [?:?] {}
+
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayer['Dev'/114, l='ServerLevel[New World]', x=-214.38, y=103.91, z=-218.07]]
+	Chunk stats: 2970
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,68,0), Section: (at 0,4,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 13136 game time, 13136 day time
+	Level name: New World
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+	Level weather: Rain time: 158369 (now: false), thunder time: 47536 (now: false)
+	Known server brands: forge
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:866) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:806) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:654) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:244) ~[forge-1.19.2-43.4.2_mapped_official_1.19.2.jar%23188!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at java.lang.Thread.run(Thread.java:840) [?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.19.2
+	Minecraft Version ID: 1.19.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.12, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 1747340304 bytes (1666 MiB) / 3087007744 bytes (2944 MiB) up to 17104371712 bytes (16312 MiB)
+	CPUs: 20
+	Processor Vendor: GenuineIntel
+	Processor Name: 12th Gen Intel(R) Core(TM) i7-12700H
+	Identifier: Intel64 Family 6 Model 154 Stepping 3
+	Microarchitecture: unknown
+	Frequency (GHz): 2.69
+	Number of physical packages: 1
+	Number of physical CPUs: 14
+	Number of logical CPUs: 20
+	Graphics card #0 name: NVIDIA T600 Laptop GPU
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x1fb6
+	Graphics card #0 versionInfo: DriverVersion=31.0.15.3818
+	Graphics card #1 name: Intel(R) Iris(R) Xe Graphics
+	Graphics card #1 vendor: Intel Corporation (0x8086)
+	Graphics card #1 VRAM (MB): 1024.00
+	Graphics card #1 deviceId: 0x46a6
+	Graphics card #1 versionInfo: DriverVersion=31.0.101.4502
+	Memory slot #0 capacity (MB): 32768.00
+	Memory slot #0 clockSpeed (GHz): 4.80
+	Memory slot #0 type: Unknown
+	Memory slot #1 capacity (MB): 32768.00
+	Memory slot #1 clockSpeed (GHz): 4.80
+	Memory slot #1 type: Unknown
+	Virtual memory max (MB): 74963.05
+	Virtual memory used (MB): 20701.06
+	Swap memory total (MB): 9728.00
+	Swap memory used (MB): 53.65
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/114, l='ServerLevel[New World]', x=-214.38, y=103.91, z=-218.07]]
+	Data Packs: vanilla, mod:forge, mod:kalium (incompatible)
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Launched Version: MOD_DEV
+	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.3.jar eventbus PLUGINSERVICE 
+		fmlloader-1.19.2-43.4.2.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.19.2-43.4.2.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.19.2-43.4.2.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.19.2-43.4.2.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.19.2-43.4.2.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.9.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.9.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.19.2-43.4.2_mapped_official_1.19.2.jar    |Minecraft                     |minecraft                     |1.19.2              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |43.4.2              |DONE      |Manifest: NOSIGNATURE
+		main                                              |Kalium                        |kalium                        |1.0-SNAPSHOT        |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 5fc2c58b-f69a-44d4-b81c-a723319e22f2
+	FML: 43.4
+	Forge: net.minecraftforge:43.4.2
