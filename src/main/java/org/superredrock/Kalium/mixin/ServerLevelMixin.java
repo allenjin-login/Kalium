@@ -47,18 +47,16 @@ public abstract class ServerLevelMixin extends Level {
     @Override
     public void addFreshBlockEntities(@NotNull Collection<BlockEntity> beList) {
         super.addFreshBlockEntities(beList);
+        this.blockPool.addFleshBlockTicker(beList);
     }
 
     @Override
     protected void tickBlockEntities() {
-        super.tickBlockEntities();
-    }
-
-    @Inject(method = "tick",at = @At("HEAD"))
-    public void tick(BooleanSupplier p_8794_, CallbackInfo ci){
+        ProfilerFiller profilerfiller = this.getProfiler();
+        profilerfiller.push("blockEntities");
         this.blockPool.onTick();
+        profilerfiller.pop();
     }
-
 
     @Inject(method = "close",at = @At("RETURN"))
     public void onClose(CallbackInfo ci){
