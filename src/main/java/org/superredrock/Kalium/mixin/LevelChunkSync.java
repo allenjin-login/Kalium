@@ -3,6 +3,7 @@ package org.superredrock.Kalium.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.biome.Biome;
@@ -24,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 @Mixin(LevelChunk.class)
-public abstract class LevelChunkMixin extends ChunkAccess  {
+public abstract class LevelChunkSync extends ChunkAccess  {
 
     @Unique
     private final ReentrantReadWriteLock kalium$lock = new ReentrantReadWriteLock();
@@ -34,7 +35,7 @@ public abstract class LevelChunkMixin extends ChunkAccess  {
     private final ReentrantReadWriteLock.WriteLock kalium$writeLock = this.kalium$lock.writeLock();
 
 
-    public LevelChunkMixin(ChunkPos p_187621_, UpgradeData p_187622_, LevelHeightAccessor p_187623_, Registry<Biome> p_187624_, long p_187625_, @Nullable LevelChunkSection[] p_187626_, @Nullable BlendingData p_187627_) {
+    public LevelChunkSync(ChunkPos p_187621_, UpgradeData p_187622_, LevelHeightAccessor p_187623_, Registry<Biome> p_187624_, long p_187625_, @Nullable LevelChunkSection[] p_187626_, @Nullable BlendingData p_187627_) {
         super(p_187621_, p_187622_, p_187623_, p_187624_, p_187625_, p_187626_, p_187627_);
     }
 
@@ -64,6 +65,15 @@ public abstract class LevelChunkMixin extends ChunkAccess  {
     }
     @Inject(method = {"addAndRegisterBlockEntity","setBlockEntity"},at = @At("RETURN"))
     public void onSetBlockUnlock(BlockEntity p_156391_, CallbackInfo ci){
+        this.kalium$writeLock.unlock();
+    }
+
+    @Inject(method = {"addGameEventListener","removeGameEventListener"},at = @At("HEAD"))
+    public <T extends BlockEntity> void onGameEventListenerLock(T p_223416_, ServerLevel p_223417_, CallbackInfo ci){
+        this.kalium$writeLock.lock();
+    }
+    @Inject(method = {"addGameEventListener","removeGameEventListener"},at = @At("RETURN"))
+    public <T extends BlockEntity> void onGameEventListenerUnLock(T p_223416_, ServerLevel p_223417_, CallbackInfo ci){
         this.kalium$writeLock.unlock();
     }
 

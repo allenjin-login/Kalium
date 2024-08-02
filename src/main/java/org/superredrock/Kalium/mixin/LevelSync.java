@@ -8,20 +8,19 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.LevelChunk;
-import org.jetbrains.annotations.NotNull;
-import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import javax.annotation.Nullable;
 import java.util.concurrent.locks.ReentrantLock;
 
 
 @Mixin(Level.class)
 public abstract class LevelSync implements LevelAccessor {
-    @Shadow @Final public boolean isClientSide;
 
     @Shadow public abstract LevelChunk getChunkAt(BlockPos p_46746_);
 
@@ -66,24 +65,9 @@ public abstract class LevelSync implements LevelAccessor {
     }
 
 
-    /**
-     * @author superredrock
-     * @reason allow other thread to tick
-     */
-    @Nullable
-    @Overwrite
-    public BlockEntity getBlockEntity(@NotNull BlockPos p_46716_) {
-        if (this.isOutsideBuildHeight(p_46716_)) {
-            return null;
-        } else {
-            return this.isClientSide ? null : this.getChunkAt(p_46716_).getBlockEntity(p_46716_, LevelChunk.EntityCreationType.IMMEDIATE);
-        }
-    }
-
     //TODO:
-    // class : LevelChunk, BlockSta
+    // class : BlockStatus
     // method: markAndNotifyBlock, onBlockStateChange, getHeight, getBlockState, getFluidState
-
 
 
 }

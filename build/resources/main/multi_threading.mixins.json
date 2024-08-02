@@ -6,7 +6,7 @@
   "refmap": "multi_threading.refmap.json",
   "mixins": [
     "LegancyRandomSourceSync",
-    "LevelChunkMixin",
+    "LevelChunkSync",
     "LevelSync",
     "MineCraftServerMixin",
     "ServerLevelMixin"

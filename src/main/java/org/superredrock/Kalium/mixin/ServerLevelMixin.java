@@ -1,6 +1,7 @@
 package org.superredrock.Kalium.mixin;
 
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
@@ -8,9 +9,12 @@ import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TickingBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.storage.WritableLevelData;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -62,4 +66,19 @@ public abstract class ServerLevelMixin extends Level {
         this.kalium$BlockPool = null;
     }
 
+    @Nullable
+    @Override
+    public BlockEntity getBlockEntity(@NotNull BlockPos p_46716_) {
+        if (this.isOutsideBuildHeight(p_46716_)) {
+            return null;
+        } else {
+            return this.isClientSide ? null : this.getChunkAt(p_46716_).getBlockEntity(p_46716_, LevelChunk.EntityCreationType.IMMEDIATE);
+        }
+    }
+
+
+    @Override
+    public boolean setBlock(@NotNull BlockPos p_46605_, @NotNull BlockState p_46606_, int p_46607_, int p_46608_) {
+        return super.setBlock(p_46605_, p_46606_, p_46607_, p_46608_);
+    }
 }
