@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="244884bc-5459-4933-9e1c-8cfdab5c7fa6" name="更改" comment="add more sync,fix that some block don't work">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/Kalium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/Kalium.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Multi-Threading" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Multi-Threading" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Multi-Threading" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Multi-Threading" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="forgegradle runs" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/allenjin-login/Kalium.git&quot;,
+    &quot;accountId&quot;: &quot;77e59538-bb7b-425b-9446-348db8864b75&quot;
+  }
+}</component>
+  <component name="PerforceDirect.Settings">
+    <option name="CHARSET" value="none" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2k2nDNMHO9IOwq3C9jTMeTN9Uyb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Gradle.C:/Users/RogerJin/IdeaProjects/Kalium [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor": "Run",
+    "Gradle.Kalium [:prepareRunClientCompile].executor": "Run",
+    "Gradle.Kalium [:prepareRunGameTestServerCompile].executor": "Run",
+    "Gradle.Kalium [jar].executor": "Run",
+    "Gradle.Multi-Threading [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor": "Run",
+    "Gradle.Multi-Threading [:prepareRunClientCompile].executor": "Run",
+    "Gradle.Multi-Threading [genIntellijRuns].executor": "Run",
+    "Gradle.构建 Kalium.executor": "Run",
+    "Gradle.构建 Multi-Threading.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "1.19.2",
+    "jdk.selected.JDK": "openjdk-22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/RogerJin/IdeaProjects/Kalium",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.atlassian.bitbucket.linky.repositories",
+    "应用程序.runClient.executor": "Run",
+    "应用程序.runGameTestServer.executor": "Run"
+  },
+  "keyToStringList": {
+    "jdk.preference.JDK": [
+      "22=C:/Users/RogerJin/.jdks/openjdk-22.0.2"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\RogerJin\IdeaProjects\Kalium" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.runClient">
+    <configuration name="Kalium [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Multi-Threading [genIntellijRuns]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="genIntellijRuns" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.Kalium [jar]" />
+      <item itemvalue="Gradle.Multi-Threading [genIntellijRuns]" />
+      <item itemvalue="应用程序.runClient" />
+      <item itemvalue="应用程序.runData" />
+      <item itemvalue="应用程序.runGameTestServer" />
+      <item itemvalue="应用程序.runServer" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Kalium [jar]" />
+        <item itemvalue="Gradle.Multi-Threading [genIntellijRuns]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\RogerJin\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="244884bc-5459-4933-9e1c-8cfdab5c7fa6" name="更改" comment="" />
+      <created>1722490419946</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722490419946</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Mod version 1.0.0">
+      <option name="closed" value="true" />
+      <created>1722497388066</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722497388066</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Mod version 1.0.0">
+      <option name="closed" value="true" />
+      <created>1722497394974</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722497394974</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Change git">
+      <option name="closed" value="true" />
+      <created>1722497556195</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722497556195</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix bug BlockPool">
+      <option name="closed" value="true" />
+      <created>1722511672487</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722511672487</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix bug BlockPool.java 2.0">
+      <option name="closed" value="true" />
+      <created>1722513187334</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722513187334</updated>
+    </task>
+    <task id="LOCAL-00006" summary="world update">
+      <option name="closed" value="true" />
+      <created>1722513266729</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722513266729</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix client display bug">
+      <option name="closed" value="true" />
+      <created>1722514372987</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722514372987</updated>
+    </task>
+    <task id="LOCAL-00008" summary="change name">
+      <option name="closed" value="true" />
+      <created>1722523900281</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722523900281</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix deadlock problem">
+      <option name="closed" value="true" />
+      <created>1722531442595</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722531442595</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add more sync,fix that some block don't work">
+      <option name="closed" value="true" />
+      <created>1722572277388</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722572277388</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add more sync,fix that some block don't work">
+      <option name="closed" value="true" />
+      <created>1722573120914</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1722573120914</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add more sync,fix that some block don't work">
+      <option name="closed" value="true" />
+      <created>1722573154777</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722573154777</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Mod version 1.0.0" />
+    <MESSAGE value="Change git" />
+    <MESSAGE value="fix bug BlockPool" />
+    <MESSAGE value="fix bug BlockPool.java 2.0" />
+    <MESSAGE value="world update" />
+    <MESSAGE value="fix client display bug" />
+    <MESSAGE value="change name" />
+    <MESSAGE value="fix deadlock problem" />
+    <MESSAGE value="add more sync,fix that some block don't work" />
+    <option name="LAST_COMMIT_MESSAGE" value="add more sync,fix that some block don't work" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+</project>
