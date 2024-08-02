@@ -10,7 +10,9 @@
     "org/superredrock/Kalium/mixin/ServerLevelMixin": {
       "close": "Lnet/minecraft/server/level/ServerLevel;close()V"
     },
-    "org/superredrock/Kalium/mixin/LevelMixin": {
+    "org/superredrock/Kalium/mixin/LevelSync": {
+      "setBlockAndUpdate": "Lnet/minecraft/world/level/Level;m_46597_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z",
+      "destroyBlock": "Lnet/minecraft/world/level/Level;m_7740_(Lnet/minecraft/core/BlockPos;ZLnet/minecraft/world/entity/Entity;I)Z",
       "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z": "Lnet/minecraft/world/level/Level;m_6933_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z"
     }
   },
@@ -26,7 +28,9 @@
       "org/superredrock/Kalium/mixin/ServerLevelMixin": {
         "close": "Lnet/minecraft/server/level/ServerLevel;close()V"
       },
-      "org/superredrock/Kalium/mixin/LevelMixin": {
+      "org/superredrock/Kalium/mixin/LevelSync": {
+        "setBlockAndUpdate": "Lnet/minecraft/world/level/Level;m_46597_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z",
+        "destroyBlock": "Lnet/minecraft/world/level/Level;m_7740_(Lnet/minecraft/core/BlockPos;ZLnet/minecraft/world/entity/Entity;I)Z",
         "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z": "Lnet/minecraft/world/level/Level;m_6933_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z"
       }
     }

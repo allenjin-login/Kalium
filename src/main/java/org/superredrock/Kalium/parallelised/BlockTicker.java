@@ -8,7 +8,6 @@ import java.util.Objects;
 public class BlockTicker implements Runnable{
 
     private final Level PoolLevel;
-
     private final TickingBlockEntity targetBlock;
     private boolean clean = false;
 

@@ -25,9 +25,7 @@ public abstract class TickerPool extends ScheduledThreadPoolExecutor implements 
         return name;
     }
 
-    public void onTick(){
-
-    }
+    public void onTick(){}
 
 
     @Override

@@ -11,7 +11,8 @@ import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.storage.WritableLevelData;
 import org.jetbrains.annotations.NotNull;
-import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -26,7 +27,7 @@ import java.util.function.Supplier;
 public abstract class ServerLevelMixin extends Level {
 
     @Unique
-    private BlockPool blockPool = PoolManager.mainPool.createBlockPool(this);
+    private BlockPool kalium$BlockPool = PoolManager.mainPool.createBlockPool(this);
 
     protected ServerLevelMixin(WritableLevelData p_220352_, ResourceKey<Level> p_220353_, Holder<DimensionType> p_220354_, Supplier<ProfilerFiller> p_220355_, boolean p_220356_, boolean p_220357_, long p_220358_, int p_220359_) {
         super(p_220352_, p_220353_, p_220354_, p_220355_, p_220356_, p_220357_, p_220358_, p_220359_);
@@ -37,28 +38,28 @@ public abstract class ServerLevelMixin extends Level {
     @Override
     public void addBlockEntityTicker(@NotNull TickingBlockEntity p_151526_) {
         super.addBlockEntityTicker(p_151526_);
-        this.blockPool.addTicker(p_151526_);
+        this.kalium$BlockPool.addTicker(p_151526_);
     }
 
 
     @Override
     public void addFreshBlockEntities(@NotNull Collection<BlockEntity> beList) {
         super.addFreshBlockEntities(beList);
-        this.blockPool.addFleshBlockTicker(beList);
+        this.kalium$BlockPool.addFleshBlockTicker(beList);
     }
 
     @Override
     protected void tickBlockEntities() {
         ProfilerFiller profilerfiller = this.getProfiler();
         profilerfiller.push("blockEntities");
-        this.blockPool.onTick();
+        this.kalium$BlockPool.onTick();
         profilerfiller.pop();
     }
 
     @Inject(method = "close",at = @At("RETURN"))
     public void onClose(CallbackInfo ci){
-        this.blockPool.shutdownNow();
-        this.blockPool = null;
+        this.kalium$BlockPool.shutdownNow();
+        this.kalium$BlockPool = null;
     }
 
 }

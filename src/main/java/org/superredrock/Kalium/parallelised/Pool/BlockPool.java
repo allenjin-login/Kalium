@@ -9,10 +9,11 @@ import org.superredrock.Kalium.Kalium;
 import org.superredrock.Kalium.NameUtils;
 import org.superredrock.Kalium.parallelised.BlockTicker;
 
-
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.concurrent.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class BlockPool extends TickerPool {
@@ -50,7 +51,7 @@ public class BlockPool extends TickerPool {
     public void register(TickingBlockEntity tickingBlock){
         if (!tickingBlock.isRemoved()){
             BlockTicker ticker = new BlockTicker(this.OwnedLevel,tickingBlock);
-            ScheduledFuture<?> tickTask = scheduleAtFixedRate(ticker,50 ,50, TimeUnit.MILLISECONDS);
+            ScheduledFuture<?> tickTask = scheduleAtFixedRate(ticker,0,50, TimeUnit.MILLISECONDS);
             workQueue.put(ticker,tickTask);
         }
     }
@@ -58,6 +59,10 @@ public class BlockPool extends TickerPool {
 
     @Override
     public void onTick() {
+        super.onTick();
+        if (this.isTerminating() || this.isTerminated()) {
+            return;
+        }
         if (!this.pendingFreshBlocks.isEmpty()) {
             this.freshBlocks.addAll(this.pendingFreshBlocks);
             this.pendingFreshBlocks.clear();
@@ -84,10 +89,10 @@ public class BlockPool extends TickerPool {
     protected void terminated() {
         super.terminated();
         workQueue.forEachValue(16, v -> v.cancel(true));
-        workQueue.clear();
         freshBlocks.clear();
         pendingBlocks.clear();
         pendingFreshBlocks.clear();
+        workQueue.clear();
     }
 
 
