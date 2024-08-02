@@ -1,2 +1,0 @@
-org/superredrock/Kalium/mixin/LevelSync isClientSide f_46443_
-org/superredrock/Kalium/mixin/LevelSync getChunkAt (Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/chunk/LevelChunk; m_46745_

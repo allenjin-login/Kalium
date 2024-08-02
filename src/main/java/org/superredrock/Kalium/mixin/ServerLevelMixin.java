@@ -6,6 +6,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.profiling.ProfilerFiller;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TickingBlockEntity;
@@ -25,6 +26,7 @@ import org.superredrock.Kalium.parallelised.Pool.BlockPool;
 import org.superredrock.Kalium.parallelised.Pool.PoolManager;
 
 import java.util.Collection;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Supplier;
 
 @Mixin(ServerLevel.class)
@@ -32,6 +34,9 @@ public abstract class ServerLevelMixin extends Level {
 
     @Unique
     private BlockPool kalium$BlockPool = PoolManager.mainPool.createBlockPool(this);
+
+    @Unique
+    private final ReentrantLock kalium$lock = new ReentrantLock();
 
     protected ServerLevelMixin(WritableLevelData p_220352_, ResourceKey<Level> p_220353_, Holder<DimensionType> p_220354_, Supplier<ProfilerFiller> p_220355_, boolean p_220356_, boolean p_220357_, long p_220358_, int p_220359_) {
         super(p_220352_, p_220353_, p_220354_, p_220355_, p_220356_, p_220357_, p_220358_, p_220359_);
@@ -79,6 +84,32 @@ public abstract class ServerLevelMixin extends Level {
 
     @Override
     public boolean setBlock(@NotNull BlockPos p_46605_, @NotNull BlockState p_46606_, int p_46607_, int p_46608_) {
-        return super.setBlock(p_46605_, p_46606_, p_46607_, p_46608_);
+        this.kalium$lock.lock();
+        boolean result =  super.setBlock(p_46605_, p_46606_, p_46607_, p_46608_);
+        this.kalium$lock.unlock();
+        return result;
+    }
+
+    @Override
+    public boolean destroyBlock(@NotNull BlockPos p_46626_, boolean p_46627_, @Nullable Entity p_46628_, int p_46629_) {
+        this.kalium$lock.lock();
+        boolean result =  super.destroyBlock(p_46626_, p_46627_, p_46628_, p_46629_);
+        this.kalium$lock.unlock();
+        return result;
+    }
+
+    @Override
+    public void setBlockEntity(@NotNull BlockEntity p_151524_) {
+        this.kalium$lock.lock();
+        super.setBlockEntity(p_151524_);
+        this.kalium$lock.unlock();
+    }
+
+    @Override
+    public boolean setBlockAndUpdate(@NotNull BlockPos p_46598_, @NotNull BlockState p_46599_) {
+        this.kalium$lock.lock();
+        boolean result =  super.setBlockAndUpdate(p_46598_, p_46599_);
+        this.kalium$lock.unlock();
+        return result;
     }
 }

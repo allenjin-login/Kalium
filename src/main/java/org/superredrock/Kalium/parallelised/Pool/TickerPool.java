@@ -18,6 +18,7 @@ public abstract class TickerPool extends ScheduledThreadPoolExecutor implements 
         this.OwnedLevel = ownedLevel;
         this.name = name;
         this.setThreadFactory(this);
+        this.setRemoveOnCancelPolicy(true);
     }
 
 

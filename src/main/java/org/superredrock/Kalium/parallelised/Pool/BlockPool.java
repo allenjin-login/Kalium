@@ -5,7 +5,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import net.minecraftforge.common.extensions.IForgeBlockEntity;
 import org.jetbrains.annotations.NotNull;
-import org.superredrock.Kalium.Kalium;
 import org.superredrock.Kalium.NameUtils;
 import org.superredrock.Kalium.parallelised.BlockTicker;
 
@@ -30,8 +29,6 @@ public class BlockPool extends TickerPool {
     }
 
 
-
-
     public void addTicker(TickingBlockEntity tickingBlock){
         if (this.ticking){
             this.pendingBlocks.add(tickingBlock);
@@ -39,7 +36,6 @@ public class BlockPool extends TickerPool {
             register(tickingBlock);
         }
     }
-
     public void addFleshBlockTicker(Collection<BlockEntity> fleshBlock){
         if (this.ticking) {
             this.pendingFreshBlocks.addAll(fleshBlock);
@@ -51,7 +47,7 @@ public class BlockPool extends TickerPool {
     public void register(TickingBlockEntity tickingBlock){
         if (!tickingBlock.isRemoved()){
             BlockTicker ticker = new BlockTicker(this.OwnedLevel,tickingBlock);
-            ScheduledFuture<?> tickTask = scheduleAtFixedRate(ticker,0,50, TimeUnit.MILLISECONDS);
+            ScheduledFuture<?> tickTask = this.scheduleWithFixedDelay(ticker,50,50,TimeUnit.MILLISECONDS);
             workQueue.put(ticker,tickTask);
         }
     }
@@ -78,9 +74,6 @@ public class BlockPool extends TickerPool {
             }
             this.pendingBlocks.clear();
         }
-        if (this.getActiveCount() != 0){
-            Kalium.LOGGER.debug("Active blocks {}",this.getActiveCount());
-        }
         release();
         this.ticking = false;
     }
@@ -104,9 +97,6 @@ public class BlockPool extends TickerPool {
                     workQueue.remove(blockTicker);
                     count.incrementAndGet();
                 });
-        if (count.get() != 0){
-            Kalium.LOGGER.debug("Release {} blocks",count.get());
-        }
     }
 
     @Override
