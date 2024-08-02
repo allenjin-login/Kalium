@@ -148,9 +148,11 @@ Writing Output: C:\Users\RogerJin\IdeaProjects\Kalium\build\reobfJar\output.jar
   org/superredrock/Kalium/
   org/superredrock/Kalium/Kalium$ClientModEvents.class
   org/superredrock/Kalium/Kalium.class
+  org/superredrock/Kalium/NameUtils.class
   org/superredrock/Kalium/mixin/
-  org/superredrock/Kalium/mixin/LegancyRandomSourceSyncMixin.class
-  org/superredrock/Kalium/mixin/LevelMixin.class
+  org/superredrock/Kalium/mixin/LegancyRandomSourceSync.class
+  org/superredrock/Kalium/mixin/LevelChunkMixin.class
+  org/superredrock/Kalium/mixin/LevelSync.class
   org/superredrock/Kalium/mixin/MineCraftServerMixin.class
   org/superredrock/Kalium/mixin/ServerLevelMixin.class
   org/superredrock/Kalium/parallelised/

@@ -7,7 +7,7 @@ public class NameUtils {
     private static final ConcurrentSkipListSet<Integer> existId = new ConcurrentSkipListSet<>();
 
     public static int getId(){
-        int result = ThreadLocalRandom.current().nextInt();
+        int result = ThreadLocalRandom.current().nextInt(0,Integer.MAX_VALUE);
         if (existId.contains(result)){
             return getId();
         }else {

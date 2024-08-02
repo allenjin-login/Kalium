@@ -28,6 +28,7 @@ public abstract class LevelSync implements LevelAccessor {
     @Unique
     private final ReentrantLock kalium$lock = new ReentrantLock();
 
+
     @Inject(method = "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z",at = @At("HEAD"))
     public void onSetBlockLock(BlockPos p_46605_, BlockState p_46606_, int p_46607_, int p_46608_, CallbackInfoReturnable<Boolean> cir){
         kalium$lock.lock();
@@ -60,18 +61,10 @@ public abstract class LevelSync implements LevelAccessor {
         kalium$lock.lock();
     }
     @Inject(method = "setBlockEntity",at = @At("RETURN"))
-    public void onRemoveBlockEntityUnlock(BlockEntity p_151524_, CallbackInfo ci){
+    public void onSetBlockEntityUnlock(BlockEntity p_151524_, CallbackInfo ci){
         kalium$lock.unlock();
     }
 
-    @Inject(method = "removeBlockEntity",at = @At("HEAD"))
-    public void onRemoveBlockEntityLock(BlockPos p_46748_, CallbackInfo ci){
-        kalium$lock.lock();
-    }
-    @Inject(method = "removeBlockEntity",at = @At("RETURN"))
-    public void onRemoveBlockEntityUnlock(BlockPos p_46748_, CallbackInfo ci){
-        kalium$lock.unlock();
-    }
 
     /**
      * @author superredrock
