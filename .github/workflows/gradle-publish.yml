@@ -26,7 +26,7 @@ jobs:
     - name: Pull
       uses: actions/checkout@v4
       with:
-        path: 1.19.2
+        repository: '${{ github.repository }}/tree/1.19.2'
     
     - name: Set up JDK 17
       uses: actions/setup-java@v4
