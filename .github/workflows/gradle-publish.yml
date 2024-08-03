@@ -10,7 +10,7 @@ name: Gradle Package
 on:
   push:
     branches:
-      - master
+      - main
       - 1.19.2
   release:
     types: [created]
