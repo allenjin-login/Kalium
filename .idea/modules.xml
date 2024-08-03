@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Multi-Threading.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Multi-Threading.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Kalium.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Kalium.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Kalium.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Kalium.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Multi-Threading.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Multi-Threading.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.superredrock.Multi-Threading.test.iml" filepath="$PROJECT_DIR$/.idea/modules/org.superredrock.Multi-Threading.test.iml" />
     </modules>
   </component>
 </project>

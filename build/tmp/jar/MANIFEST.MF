@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Specification-Title: multi_threading
+Specification-Title: kalium
 Specification-Vendor: 
 Specification-Version: 1
-Implementation-Title: Multi-Threading
-Implementation-Version: 1.0-SNAPSHOT
+Implementation-Title: Kalium
+Implementation-Version: 1.0.0
 Implementation-Vendor: 
-Implementation-Timestamp: 2024-08-02T14:50:09+0800
-MixinConfigs: multi_threading.mixins.json
+Implementation-Timestamp: 2024-08-03T14:06:35+0800
+MixinConfigs: kalium.mixins.json
 

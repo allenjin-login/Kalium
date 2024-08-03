@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import net.minecraftforge.common.extensions.IForgeBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.superredrock.Kalium.NameUtils;
+import org.superredrock.Kalium.parallelised.BlockThreadGroup;
 import org.superredrock.Kalium.parallelised.BlockTicker;
 
 import java.util.ArrayList;
@@ -13,9 +14,9 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class BlockPool extends TickerPool {
+    protected final ThreadGroup group = new BlockThreadGroup();
 
     private final ConcurrentHashMap<BlockTicker, ScheduledFuture<?>> workQueue = new ConcurrentHashMap<>();
     private final ArrayList<BlockEntity> freshBlocks = new ArrayList<>();
@@ -49,6 +50,7 @@ public class BlockPool extends TickerPool {
             BlockTicker ticker = new BlockTicker(this.OwnedLevel,tickingBlock);
             ScheduledFuture<?> tickTask = this.scheduleWithFixedDelay(ticker,50,50,TimeUnit.MILLISECONDS);
             workQueue.put(ticker,tickTask);
+            this.activeCount.incrementAndGet();
         }
     }
 
@@ -90,17 +92,16 @@ public class BlockPool extends TickerPool {
 
 
     public void release(){
-        AtomicLong count = new AtomicLong(0);
         workQueue.forEachKey(64, k -> k.isClean() ? k : null,
                 blockTicker -> {
                     workQueue.get(blockTicker).cancel(true);
                     workQueue.remove(blockTicker);
-                    count.incrementAndGet();
+                    this.activeCount.decrementAndGet();
                 });
     }
 
     @Override
     public Thread newThread(@NotNull Runnable r) {
-        return new Thread(r,"Block Ticker " + NameUtils.getId());
+        return new Thread(group,r,"Block Ticker " + NameUtils.getId());
     }
 }

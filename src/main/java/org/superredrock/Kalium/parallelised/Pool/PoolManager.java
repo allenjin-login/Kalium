@@ -6,6 +6,7 @@ import org.superredrock.Kalium.Kalium;
 import java.io.Closeable;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.function.BiFunction;
 
 public class PoolManager implements Closeable {
     private final ConcurrentHashMap<TickerPool, Level> ActivePool = new ConcurrentHashMap<>();
@@ -46,6 +47,13 @@ public class PoolManager implements Closeable {
         return newBlockPool;
     }
 
+    public <T extends TickerPool> T fork(int threads, Level level, BiFunction<Integer,Level,T> builder){
+        //TODO: wait for improve
+        T pool = builder.apply(threads,level);
+        this.register(pool,level);
+        return pool;
+    }
+
     public void register(TickerPool pool,Level dimension){
         ActivePool.put(pool,dimension);
     }
@@ -61,7 +69,5 @@ public class PoolManager implements Closeable {
     }
 
     public static final PoolManager mainPool = new PoolManager(32);
-
-    //TODO: more ....
 
 }
