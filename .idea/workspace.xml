@@ -5,7 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="244884bc-5459-4933-9e1c-8cfdab5c7fa6" name="更改" comment="improve PoolManager.java">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/ServerChunkCacheMixin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/BlockPosLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runClient.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runClient.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runData.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runGameTestServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runGameTestServer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runServer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/mixin/ServerLevelMixin.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/mixin/ServerLevelMixin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/BlockPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/BlockPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/PoolManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/PoolManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/TickerPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/TickerPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/multi_threading.mixins.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-mappings.tsrg" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-mappings.tsrg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-refmap.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-refmap.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/LevelChunkSync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/LevelChunkSync.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/LevelSync.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/ServerLevelMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/ServerLevelMixin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/BlockPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/BlockPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/PoolManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/PoolManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/multi_threading.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/kalium.mixins.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +75,12 @@
                 <item name="Kalium" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Kalium" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="forgegradle runs" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -98,39 +139,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Gradle.C:/Users/RogerJin/IdeaProjects/Kalium [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor": "Run",
-    "Gradle.Kalium [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor": "Run",
-    "Gradle.Kalium [:prepareRunClientCompile].executor": "Run",
-    "Gradle.Kalium [:prepareRunGameTestServerCompile].executor": "Run",
-    "Gradle.Kalium [build].executor": "Run",
-    "Gradle.Kalium [jar].executor": "Run",
-    "Gradle.Multi-Threading [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor": "Run",
-    "Gradle.Multi-Threading [:prepareRunClientCompile].executor": "Run",
-    "Gradle.Multi-Threading [genIntellijRuns].executor": "Run",
-    "Gradle.构建 Kalium.executor": "Run",
-    "Gradle.构建 Multi-Threading.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "1.19.2",
-    "jdk.selected.JDK": "openjdk-22",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/RogerJin/IdeaProjects/Kalium",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "应用程序.runClient.executor": "Run",
-    "应用程序.runGameTestServer.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.C:/Users/RogerJin/IdeaProjects/Kalium [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Kalium [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Kalium [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Kalium [:prepareRunGameTestServerCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Kalium [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Kalium [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Multi-Threading [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Multi-Threading [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Multi-Threading [genIntellijRuns].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.构建 Kalium.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.构建 Multi-Threading.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;1.19.2&quot;,
+    &quot;jdk.selected.JDK&quot;: &quot;openjdk-22&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/RogerJin/IdeaProjects/Kalium&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;应用程序.runClient.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.runGameTestServer.executor&quot;: &quot;Run&quot;
   },
-  "keyToStringList": {
-    "jdk.preference.JDK": [
-      "22=C:/Users/RogerJin/.jdks/openjdk-22.0.2"
+  &quot;keyToStringList&quot;: {
+    &quot;jdk.preference.JDK&quot;: [
+      &quot;22=C:/Users/RogerJin/.jdks/openjdk-22.0.2&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="main" branch="1.19.2" />
+    </force-push-targets>
+  </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="C:\Users\RogerJin\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="b7c42dfa-9ba0-4741-b798-6c577af754a1" reportId="Kalium/qodana/2024-08-02" />
@@ -144,7 +190,7 @@
       <recent name="C:\Users\RogerJin\IdeaProjects\Kalium\run\mods" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Kalium [build]">
+  <component name="RunManager" selected="应用程序.runClient">
     <configuration name="Kalium [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -222,9 +268,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Multi-Threading [genIntellijRuns]" />
         <item itemvalue="Gradle.Kalium [build]" />
         <item itemvalue="Gradle.Kalium [jar]" />
-        <item itemvalue="Gradle.Multi-Threading [genIntellijRuns]" />
       </list>
     </recent_temporary>
   </component>
@@ -376,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722668964295</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="improve PoolManager.java">
+      <option name="closed" value="true" />
+      <created>1722670317548</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1722670317548</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

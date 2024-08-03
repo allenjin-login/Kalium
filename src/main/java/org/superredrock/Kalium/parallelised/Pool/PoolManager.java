@@ -2,6 +2,7 @@ package org.superredrock.Kalium.parallelised.Pool;
 
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.superredrock.Kalium.Kalium;
 
 import java.io.Closeable;
 import java.util.ArrayList;
@@ -34,7 +35,6 @@ public class PoolManager implements Closeable {
         }
     }
 
-
     public <T extends TickerPool> T fork(int threads, Level level, @NotNull BiFunction<Integer,Level,T> builder){
         //TODO: wait for improve
         if (this.closed){
@@ -42,6 +42,7 @@ public class PoolManager implements Closeable {
         }
         T pool = builder.apply(threads,level);
         this.register(pool,level);
+        Kalium.LOGGER.debug("Allocate new pool[name: {}] with {} threads",pool.getName(),threads);
         return pool;
     }
 
@@ -78,7 +79,6 @@ public class PoolManager implements Closeable {
         );
         this.ActivePool.clear();
         this.closed = true;
-
     }
     public static final PoolManager mainPool = new PoolManager(32);
 

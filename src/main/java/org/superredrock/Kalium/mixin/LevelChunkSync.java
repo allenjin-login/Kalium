@@ -8,6 +8,7 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.chunk.LevelChunkSection;
@@ -64,7 +65,7 @@ public abstract class LevelChunkSync extends ChunkAccess  {
         this.kalium$writeLock.lock();
     }
     @Inject(method = {"addAndRegisterBlockEntity","setBlockEntity"},at = @At("RETURN"))
-    public void onSetBlockUnlock(BlockEntity p_156391_, CallbackInfo ci){
+    public void onSetBlockStateUnlock(BlockEntity p_156391_, CallbackInfo ci){
         this.kalium$writeLock.unlock();
     }
 
@@ -77,8 +78,14 @@ public abstract class LevelChunkSync extends ChunkAccess  {
         this.kalium$writeLock.unlock();
     }
 
-
-
+    @Inject(method = {"setBlockState"},at = @At("HEAD"))
+    public void onSetBlockStateLock(BlockPos p_62865_, BlockState p_62866_, boolean p_62867_, CallbackInfoReturnable<BlockState> cir){
+        this.kalium$writeLock.lock();
+    }
+    @Inject(method = {"setBlockState"},at = @At("RETURN"))
+    public void onSetBlockStateUnlock(BlockPos p_62865_, BlockState p_62866_, boolean p_62867_, CallbackInfoReturnable<BlockState> cir){
+        this.kalium$writeLock.unlock();
+    }
 
 
 }
