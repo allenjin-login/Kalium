@@ -33,7 +33,7 @@ import java.util.function.Supplier;
 public abstract class ServerLevelMixin extends Level {
 
     @Unique
-    private BlockPool kalium$BlockPool = PoolManager.mainPool.createBlockPool(this);
+    private BlockPool kalium$BlockPool = PoolManager.mainPool.fork(this, BlockPool::new);
 
     @Unique
     private final ReentrantLock kalium$lock = new ReentrantLock();
