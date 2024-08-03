@@ -24,7 +24,7 @@ jobs:
 
     steps:
     - name: Pull
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
       with:
         repository: '${{ github.repository }}/1.19.2'
     
