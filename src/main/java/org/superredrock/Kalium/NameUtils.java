@@ -19,4 +19,6 @@ public class NameUtils {
     public static void release(int id){
         existId.remove(id);
     }
+
+    public static void releaseAll(){existId.clear();}
 }

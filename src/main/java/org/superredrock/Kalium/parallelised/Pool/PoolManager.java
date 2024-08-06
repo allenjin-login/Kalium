@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiFunction;
 
 public class PoolManager implements Closeable {
-    private final ConcurrentHashMap<Level,List<TickerPool>> ActivePool = new ConcurrentHashMap<>();
+    private static PoolManager defaultPool = new PoolManager(32);
     private final int maxThread;
     private int threadCount;
     private boolean closed = false;
@@ -53,22 +53,26 @@ public class PoolManager implements Closeable {
         }
         return this.fork(allocateThread,level,builder);
     }
+    private final ConcurrentHashMap<Level,List<TickerPool>> managedPools = new ConcurrentHashMap<>();
 
-
+    public static PoolManager init(){
+        if (defaultPool == null || defaultPool.closed){
+            defaultPool = new PoolManager(32);
+        }
+        return defaultPool;
+    }
 
     public void register(TickerPool pool,Level dimension){
-        this.ActivePool.putIfAbsent(dimension,new ArrayList<>());
-        List<TickerPool> insertList = this.ActivePool.get(dimension);
+        this.managedPools.putIfAbsent(dimension,new ArrayList<>());
+        List<TickerPool> insertList = this.managedPools.get(dimension);
         if (!insertList.contains(pool)){
             insertList.add(pool);
         }
     }
 
-
-
     @Override
     public void close() {
-        this.ActivePool.forEachValue(Integer.MAX_VALUE,P -> P.isEmpty() ? null : P,
+        this.managedPools.forEachValue(Integer.MAX_VALUE, P -> P.isEmpty() ? null : P,
                 l ->{
             for (TickerPool pool : l){
                 if (!pool.isShutdown()){
@@ -77,9 +81,8 @@ public class PoolManager implements Closeable {
             }
         }
         );
-        this.ActivePool.clear();
+        this.managedPools.clear();
         this.closed = true;
     }
-    public static final PoolManager mainPool = new PoolManager(32);
 
 }

@@ -4,43 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244884bc-5459-4933-9e1c-8cfdab5c7fa6" name="更改" comment="improve PoolManager.java">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/ServerChunkCacheMixin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/BlockPosLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runClient.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runClient.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runData.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runGameTestServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runGameTestServer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runServer.xml" afterDir="false" />
+    <list default="true" id="244884bc-5459-4933-9e1c-8cfdab5c7fa6" name="更改" comment="find deadLock bug(fix later) ServerLevelMixin.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/mixin/ServerLevelMixin.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/mixin/ServerLevelMixin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/BlockPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/BlockPool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/PoolManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/PoolManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/TickerPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/superredrock/Kalium/parallelised/Pool/TickerPool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/multi_threading.mixins.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-mappings.tsrg" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-mappings.tsrg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-refmap.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-refmap.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/LevelChunkSync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/LevelChunkSync.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/LevelSync.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/NameUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/NameUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/MineCraftServerMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/MineCraftServerMixin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/ServerLevelMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/mixin/ServerLevelMixin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/BlockPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/BlockPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/PoolManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/PoolManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/multi_threading.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/kalium.mixins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/TickerPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/superredrock/Kalium/parallelised/Pool/TickerPool.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,29 +30,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Kalium" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Kalium" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Kalium" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Kalium" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="forgegradle runs" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -430,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722670317548</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="find deadLock bug(fix later) ServerLevelMixin.java">
+      <option name="closed" value="true" />
+      <created>1722678569492</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722678569492</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -459,7 +415,8 @@
     <MESSAGE value="fix client" />
     <MESSAGE value="change project name; fix settings.gradle" />
     <MESSAGE value="improve PoolManager.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve PoolManager.java" />
+    <MESSAGE value="find deadLock bug(fix later) ServerLevelMixin.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="find deadLock bug(fix later) ServerLevelMixin.java" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

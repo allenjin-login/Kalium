@@ -16,7 +16,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 public class BlockPool extends TickerPool {
-    protected final ThreadGroup group = new BlockThreadGroup();
+    protected final ThreadGroup defaultGroup = new BlockThreadGroup();
 
     private final ConcurrentHashMap<BlockTicker, ScheduledFuture<?>> workQueue = new ConcurrentHashMap<>();
     private final ArrayList<BlockEntity> freshBlocks = new ArrayList<>();
@@ -50,14 +50,19 @@ public class BlockPool extends TickerPool {
             BlockTicker ticker = new BlockTicker(this.OwnedLevel,tickingBlock);
             ScheduledFuture<?> tickTask = this.scheduleWithFixedDelay(ticker,50,50,TimeUnit.MILLISECONDS);
             workQueue.put(ticker,tickTask);
-            this.activeCount.incrementAndGet();
+            this.activeTask.incrementAndGet();
         }
     }
 
 
     @Override
-    public void onTick() {
-        super.onTick();
+    public ThreadGroup defaultGroup() {
+        return defaultGroup;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
         if (this.isTerminating() || this.isTerminated()) {
             return;
         }
@@ -91,16 +96,23 @@ public class BlockPool extends TickerPool {
     }
 
     public void release(){
-        workQueue.forEachKey(64, k -> k.isClean() ? k : null,
+        workQueue.forEachKey(32, k -> k.isClean() ? k : null,
                 blockTicker -> {
                     workQueue.get(blockTicker).cancel(true);
                     workQueue.remove(blockTicker);
-                    this.activeCount.decrementAndGet();
+                    this.activeTask.decrementAndGet();
                 });
     }
 
     @Override
     public Thread newThread(@NotNull Runnable r) {
-        return new Thread(group,r,"Block Ticker " + NameUtils.getId());
+        if (r instanceof BlockTicker){
+            Thread ticker = super.newThread(r);
+            ticker.setName("Block Ticker " + NameUtils.getId());
+            return ticker;
+        }else {
+            throw new RuntimeException("A error");
+        }
+
     }
 }

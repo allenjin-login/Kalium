@@ -12,6 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import org.superredrock.Kalium.parallelised.Pool.PoolManager;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Kalium.MODID)
@@ -41,6 +42,8 @@ public class Kalium {
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
+        PoolManager.init();
+        LOGGER.info("PoolManager starting");
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent

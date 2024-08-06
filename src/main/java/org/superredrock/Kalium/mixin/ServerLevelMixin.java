@@ -37,7 +37,7 @@ public abstract class ServerLevelMixin extends Level {
     @Shadow @Final protected Raids raids;
     @Shadow @Final private boolean tickTime;
     @Unique
-    private BlockPool kalium$BlockPool = PoolManager.mainPool.fork(this, BlockPool::new);
+    private BlockPool kalium$BlockPool = PoolManager.init().fork(this, BlockPool::new);
 
     @Unique
     private final ReentrantLock kalium$lock = new ReentrantLock();
@@ -64,7 +64,7 @@ public abstract class ServerLevelMixin extends Level {
     protected void tickBlockEntities() {
         ProfilerFiller profilerfiller = this.getProfiler();
         profilerfiller.push("blockEntities");
-        this.kalium$BlockPool.onTick();
+        this.kalium$BlockPool.tick();
         profilerfiller.pop();
     }
 
